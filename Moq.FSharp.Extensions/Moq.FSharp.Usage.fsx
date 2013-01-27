@@ -24,7 +24,7 @@ let ``mock a method that returns a value without using a type annotation`` =
 let ``mock a property setter`` =
     let mock = Mock<IFoo>()
     let value = ref None
-    mock.SetupSet<int>(fun x -> x.Value <- It.IsAny<_>()).Callback(fun x -> value := Some x)
+    mock.SetupSet<int>(fun foo -> foo.Value <- It.IsAny<_>()).Callback(fun x -> value := Some x)
     |> ignore
     mock.Object.Value <- 1
     Assert(!value |> Option.exists((=) 1))
@@ -32,7 +32,17 @@ let ``mock a property setter`` =
 let ``mock a property setter without using a type annotation`` =
     let mock = Mock<IFoo>()
     let value = ref None
-    mock.SetupSetAction(fun x -> x.Value <- It.IsAny<_>()).Callback(fun x -> value := Some x)
+    mock.SetupSetAction(fun foo -> foo.Value <- It.IsAny<_>()).Callback(fun x -> value := Some x)
     |> ignore
     mock.Object.Value <- 1
     Assert(!value |> Option.exists((=) 1))
+
+open System.ComponentModel
+
+let ``mock raising an event`` =
+    let mock = Mock<INotifyPropertyChanged>()
+    let changed = ref false
+    mock.Object.PropertyChanged.Add(fun x -> changed := true) 
+    mock.Raise((fun (x:INotifyPropertyChanged) -> x.PropertyChanged.AddHandler(null)), 
+               PropertyChangedEventArgs("Hello"))
+    Assert(changed.Value)
