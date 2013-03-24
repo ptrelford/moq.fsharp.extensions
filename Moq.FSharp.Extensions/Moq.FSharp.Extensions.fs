@@ -15,3 +15,11 @@ type Moq.Mock<'TAbstract> when 'TAbstract : not struct with
     member mock.SetupSetAction<'TProperty>(setupExpression:Action<'TAbstract>) 
         : Moq.Language.Flow.ISetupSetter<'TAbstract,'TProperty> = 
         mock.SetupSet<'TProperty>(setupExpression)
+
+type Moq.Language.Flow.IReturnsResult<'TMock> with
+    /// Ends setup
+    member __.End = ()
+
+type Moq.Language.Flow.ICallbackResult with
+    /// Ends setup
+    member __.End = ()

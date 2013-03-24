@@ -18,22 +18,27 @@ let ``mock a method that returns a value`` =
     
 let ``mock a method that returns a value without using a type annotation`` =
     let mock = Mock<IFoo>()
-    mock.SetupFunc(fun foo -> foo.DoSomething("ping")).Returns(true) |> ignore
+    mock.SetupFunc(fun foo -> foo.DoSomething("ping")).Returns(true).End
     Assert(mock.Object.DoSomething("ping"))  
     
+let ``mock a property getter`` =
+    let mock = Mock<IFoo>()
+    mock.SetupGet(fun foo -> foo.Value).Returns(1).End
+    Assert(mock.Object.Value = 1)
+
 let ``mock a property setter`` =
     let mock = Mock<IFoo>()
     let value = ref None
-    mock.SetupSet<int>(fun foo -> foo.Value <- It.IsAny<_>()).Callback(fun x -> value := Some x)
-    |> ignore
+    mock.SetupSet<int>(fun foo -> foo.Value <- It.IsAny<_>())
+        .Callback(fun x -> value := Some x) |> ignore
     mock.Object.Value <- 1
     Assert(!value |> Option.exists((=) 1))
 
 let ``mock a property setter without using a type annotation`` =
     let mock = Mock<IFoo>()
     let value = ref None
-    mock.SetupSetAction(fun foo -> foo.Value <- It.IsAny<_>()).Callback(fun x -> value := Some x)
-    |> ignore
+    mock.SetupSetAction(fun foo -> foo.Value <- It.IsAny<_>())
+        .Callback(fun x -> value := Some x).End
     mock.Object.Value <- 1
     Assert(!value |> Option.exists((=) 1))
 
