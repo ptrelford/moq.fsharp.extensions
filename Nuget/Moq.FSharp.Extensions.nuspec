@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Moq.FSharp.Extensions</id>
-    <version>0.1</version>
+    <version>0.2</version>
     <title>Moq.FSharp.Extensions</title>
     <authors>Phillip Trelford</authors>
     <owners>Phillip Treford</owners>
