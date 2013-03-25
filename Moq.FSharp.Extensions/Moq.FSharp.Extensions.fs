@@ -22,4 +22,11 @@ type Moq.Language.Flow.IReturnsResult<'TMock> with
 
 type Moq.Language.Flow.ICallbackResult with
     /// Ends setup
-    member __.End = ()
+    member __.End = () 
+
+/// Matches any value
+let inline any () = Moq.It.IsAny()
+/// Matches any value that satisfies the given predicate
+let inline is f = Moq.It.Is(f)
+/// Creates a mock object
+let inline mock () = Moq.Mock.Of()

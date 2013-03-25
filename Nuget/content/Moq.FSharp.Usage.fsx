@@ -1,4 +1,4 @@
-﻿// Getting started with thee Moq.FSharp.Extensions:
+﻿// Getting started:
 // Moq uses .Net LINQ Expressions for setting up properties and methods.
 // F# 3 inside Visual Studio 2012 & Xamarin Studio 4 supports .Net LINQ Expressions.
 // This means you can use Moq directly from F#.
@@ -9,13 +9,16 @@
 // That's it!
 
 #if INTERACTIVE
-#r @"..\packages\Moq.4.0.10827\lib\NET40\Moq.dll"
+#I @"..\packages\Moq.4.0.10827\lib\NET40\" // path to Moq
+#r @"Moq.dll"
 #load "Moq.FSharp.Extensions.fs"
-type TestAttribute() = inherit System.Attribute ()
+
 module Assert =
     let That success = if not success then failwith "Failed"
+type TestAttribute() = inherit System.Attribute ()
 #else
 module Tests
+
 open NUnit.Framework
 #endif
 

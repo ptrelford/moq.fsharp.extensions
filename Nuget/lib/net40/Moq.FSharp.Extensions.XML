@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Moq.FSharp.Extensions</name></assembly>
+<members>
+<member name="M:Moq.FSharp.Extensions.mock``1">
+<summary>
+ Creates a mock object
+</summary>
+</member>
+<member name="M:Moq.FSharp.Extensions.is``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+<summary>
+ Matches any value that satisfies the given predicate
+</summary>
+</member>
+<member name="M:Moq.FSharp.Extensions.any``1">
+<summary>
+ Matches any value
+</summary>
+</member>
+<member name="M:Moq.FSharp.Extensions.ICallbackResult.get_End(Moq.Language.Flow.ICallbackResult)">
+<summary>
+ Ends setup
+</summary>
+</member>
+<member name="M:Moq.FSharp.Extensions.IReturnsResult`1.get_End``1(Moq.Language.Flow.IReturnsResult{``0})">
+<summary>
+ Ends setup
+</summary>
+</member>
+<member name="M:Moq.FSharp.Extensions.Mock`1.SetupSetAction``2(Moq.Mock{``0},System.Action{``0})">
+<summary>
+ Specifies a setup on the mocked type for a call to a property setter
+</summary>
+</member>
+<member name="M:Moq.FSharp.Extensions.Mock`1.SetupAction``1(Moq.Mock{``0},System.Linq.Expressions.Expression{System.Action{``0}})">
+<summary>
+ Specifies a setup on the mocked type for a call to a void method
+</summary>
+</member>
+<member name="M:Moq.FSharp.Extensions.Mock`1.SetupFunc``2(Moq.Mock{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+<summary>
+ Specifies a setup on the mocked type for a call to a function
+</summary>
+</member>
+<member name="T:Moq.FSharp.Extensions">
+
+</member>
+</members>
+</doc>
