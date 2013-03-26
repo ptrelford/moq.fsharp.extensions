@@ -71,7 +71,7 @@ let [<Test>] ``mock raising an event`` () =
     let mock = Mock<INotifyPropertyChanged>()
     let changed = ref false
     mock.Object.PropertyChanged.Add(fun x -> changed := true) 
-    mock.Raise((fun (x:INotifyPropertyChanged) -> x.PropertyChanged.AddHandler(null)), 
+    mock.RaiseHandler((fun x -> x.PropertyChanged.AddHandler(null)), 
                PropertyChangedEventArgs("Hello"))
     Assert.That(changed.Value)
 
