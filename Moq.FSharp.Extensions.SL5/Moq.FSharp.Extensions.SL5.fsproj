@@ -51,9 +51,6 @@ copy "$(TargetDir)$(TargetName).xml" ..\..\..\Nuget\lib\sl5</PostBuildEvent>
     <Compile Include="..\Moq.FSharp.Extensions\Moq.FSharp.Extensions.fs">
       <Link>Moq.FSharp.Extensions.fs</Link>
     </Compile>
-    <None Include="..\Moq.FSharp.Extensions\Moq.FSharp.Usage.fsx">
-      <Link>Moq.FSharp.Usage.fsx</Link>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core">

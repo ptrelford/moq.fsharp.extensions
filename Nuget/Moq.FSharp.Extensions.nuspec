@@ -10,9 +10,9 @@
     <projectUrl>https://bitbucket.org/ptrelford/moq.fsharp.extensions</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>The Moq.FSharp.Extensions provide extension methods and functions to enhance the Moq experience in F#.</description>
-    <releaseNotes>Setting up a method mock.SetupFunc(fun items -> items.Contains(any())).Returns(true).End</releaseNotes>
+    <releaseNotes>Set up a method function mock.SetupFunc(fun items -> items.Contains(any())).Returns(true).End</releaseNotes>
     <copyright>Copyright 2012-2013</copyright>
-    <tags>F# fsharp testing unittest unittesting TDD stubs stubbing fakes faking mocks mocking moq</tags>
+    <tags>F# fsharp testing unittest unittesting TDD stubs stubbing fakes faking mocks mocking moq Silverlight</tags>
     <dependencies>
       <dependency id="Moq" version="4.0.10827" />
     </dependencies>

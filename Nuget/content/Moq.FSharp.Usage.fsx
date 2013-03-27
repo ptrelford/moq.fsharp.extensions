@@ -9,9 +9,8 @@
 // That's it!
 
 #if INTERACTIVE
-#I @"..\packages\Moq.4.0.10827\lib\NET40\" // path to Moq
-#r @"Moq.dll"
-#load "Moq.FSharp.Extensions.fs"
+#r @"..\packages\Moq.4.0.10827\lib\NET40\Moq.dll"
+#r @"..\packages\Moq.FSharp.Extensions.0.2\lib\net40\Moq.FSharp.Extensions.dll"
 
 module Assert =
     let That success = if not success then failwith "Failed"

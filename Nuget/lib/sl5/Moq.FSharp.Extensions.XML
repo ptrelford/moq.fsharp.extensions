@@ -17,6 +17,11 @@
  Matches any value
 </summary>
 </member>
+<member name="M:Moq.FSharp.Extensions.IThrowsResult.get_End(Moq.Language.Flow.IThrowsResult)">
+<summary>
+ Ends setup
+</summary>
+</member>
 <member name="M:Moq.FSharp.Extensions.ICallbackResult.get_End(Moq.Language.Flow.ICallbackResult)">
 <summary>
  Ends setup
@@ -25,6 +30,31 @@
 <member name="M:Moq.FSharp.Extensions.IReturnsResult`1.get_End``1(Moq.Language.Flow.IReturnsResult{``0})">
 <summary>
  Ends setup
+</summary>
+</member>
+<member name="M:Moq.FSharp.Extensions.Mock`1.RaiseHandler``2(Moq.Mock{``0},System.Action{``0},``1)">
+<summary>
+ Raises the event referenced in the event expression using the given args
+</summary>
+</member>
+<member name="M:Moq.FSharp.Extensions.Mock`1.VerifyAction``1(Moq.Mock{``0},System.Linq.Expressions.Expression{System.Action{``0}},Moq.Times)">
+<summary>
+ Verifies that a specific invocation matching the given expression was performed on the mock
+</summary>
+</member>
+<member name="M:Moq.FSharp.Extensions.Mock`1.VerifyAction``1(Moq.Mock{``0},System.Linq.Expressions.Expression{System.Action{``0}})">
+<summary>
+ Verifies that a specific invocation matching the given expression was performed on the mock
+</summary>
+</member>
+<member name="M:Moq.FSharp.Extensions.Mock`1.VerifyFunc``2(Moq.Mock{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+<summary>
+ Verifies that a specific invocation matching the given expression was performed on the mock
+</summary>
+</member>
+<member name="M:Moq.FSharp.Extensions.Mock`1.VerifyFunc``2(Moq.Mock{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},Moq.Times)">
+<summary>
+ Verifies that a specific invocation matching the given expression was performed on the mock
 </summary>
 </member>
 <member name="M:Moq.FSharp.Extensions.Mock`1.SetupSetAction``2(Moq.Mock{``0},System.Action{``0})">
