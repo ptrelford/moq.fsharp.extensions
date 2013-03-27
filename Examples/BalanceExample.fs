@@ -27,7 +27,7 @@ let ``total is correct for a period with transactions`` () =
     let retriever = Mock<ITransactionRetriever>()
     retriever.SetupFunc(fun m -> m.GetTransactions(1)).Returns([|1M; 2M; 3M; 4M|]).End
     let calculator = BalanceCalculator(retriever.Object)
-    Assert.AreEqual(15, calculator.GetBalance(5M, 1))
+    Assert.AreEqual(15M, calculator.GetBalance(5M, 1))
 
 [<Test>]
 let ``total is correct for multiple periods with transactions`` () =
@@ -37,18 +37,18 @@ let ``total is correct for multiple periods with transactions`` () =
     retriever.SetupFunc(fun m -> m.GetTransactions(2)).Returns(money [|5; 6; 7|]).End
     retriever.SetupFunc(fun m -> m.GetTransactions(3)).Returns(money [|8; 9; 10|]).End           
     let calculator = BalanceCalculator(retriever.Object);
-    Assert.AreEqual(60, calculator.GetBalance(5M, 1, 3))
+    Assert.AreEqual(60M, calculator.GetBalance(5M, 1, 3))
 
 [<Test>]
 let ``total is zero for an invalid period`` () =
     let retriever = Mock<ITransactionRetriever>()
     retriever.SetupFunc(fun m -> m.GetTransactions(0)).Throws<System.ArgumentException>().End
     let calculator = BalanceCalculator(retriever.Object)
-    Assert.AreEqual(5, calculator.GetBalance(5M, 0))
+    Assert.AreEqual(5M, calculator.GetBalance(5M, 0))
 
 [<Test>]
 let ``total is correct for multiple matching periods with transactions`` () =
     let retriever = Mock<ITransactionRetriever>()
     retriever.SetupFunc(fun m -> m.GetTransactions(any())).Returns([|1M;2M;3M;4M|]).End
     let calculator = new BalanceCalculator(retriever.Object)
-    Assert.AreEqual(35, calculator.GetBalance(5M, 1, 3))
+    Assert.AreEqual(35M, calculator.GetBalance(5M, 1, 3))
