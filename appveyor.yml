@@ -1,0 +1,7 @@
+version: 1.0.{build}
+build:
+  verbosity: minimal
+  project: Moq.FSharp.Extensions.sln
+test:
+  assemblies:
+    - Examples.dll
